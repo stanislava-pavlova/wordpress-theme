@@ -25,6 +25,7 @@
   <?php
   wp_head();
   ?>
+
 </head>
 
 <body>
@@ -36,21 +37,11 @@
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="index.html" class="logo">
-              <img src="<?= get_template_directory_uri() ?>/assets/images/logo-v1.png" alt="">
+              <img src="<?= get_option('logo') ?>" alt="logo">
             </a>
             <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <!-- <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="#about">About</a></li>
-              <li class="scroll-to-section"><a href="#services">Services</a></li>
-              <li class="scroll-to-section"><a href="#portfolio">Projects</a></li>
-              <li class="scroll-to-section"><a href="#blog">Blog</a></li>
-              <li class="scroll-to-section"><a href="#contact">Contact</a></li> 
-              <li class="scroll-to-section"><div class="border-first-button"><a href="#contact">Free Quote</a></div></li> 
-            </ul>      -->
 
-            <!-- ***** Menu End ***** -->
+            <!-- ***** Menu Start ***** -->
             <?php
             $settings = [
               'theme_location' => 'main-menu',
@@ -60,6 +51,7 @@
             ];
             wp_nav_menu($settings);
             ?>
+            <!-- ***** Menu End ***** -->
           </nav>
         </div>
       </div>

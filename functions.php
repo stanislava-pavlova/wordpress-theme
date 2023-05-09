@@ -71,6 +71,7 @@ function registerThemeOptions()
     register_setting('hpg', 'hp_heading');
     register_setting('hpg', 'hp_sub_heading');
     register_setting('hpg', 'hp_button');
+    register_setting('hpg', 'logo');
 }
 
 add_action('admin_init', 'registerThemeOptions');
