@@ -26,6 +26,15 @@
   wp_head();
   ?>
 
+  <style>
+    header {
+      background-color: <?= get_option('main_color') ?> !important;
+    }
+
+    a {
+      color: <?= get_option('header_text_color') ?> !important;
+    }
+  </style>
 </head>
 
 <body>

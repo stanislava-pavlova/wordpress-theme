@@ -54,6 +54,12 @@ wp_enqueue_media();
         <label>Sub heading</label>
         <input type="text" name="hp_sub_heading" value="<?= get_option('hp_sub_heading') ?>" />
 
+        <label>Theme navigation background color</label>
+        <input type="text" name="main_color" value="<?= get_option('main_color') ?>" />
+        
+        <label>Theme navigation text color</label>
+        <input type="text" name="header_text_color" value="<?= get_option('header_text_color') ?>" />
+
         <label>Button</label>
         <input type="text" name="hp_button" value="<?= get_option('hp_button') ?>" />
 
