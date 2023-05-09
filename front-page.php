@@ -11,13 +11,13 @@ get_header();
                         <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <h6>Digital Media Agency</h6>
-                                    <h2>We Boost Your Website Traffic</h2>
-                                    <p>This template is brought to you by TemplateMo website. Feel free to use this for a commercial purpose. You are not allowed to redistribute the template ZIP file on any other template website. Thank you.</p>
+                                    <h6><?= get_option('hp_company') ?></h6>
+                                    <h2><?= get_option('hp_heading') ?></h2>
+                                    <p><?= get_option('hp_sub_heading') ?></p>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="border-first-button scroll-to-section">
-                                        <a href="#contact">Free Quote</a>
+                                        <a href="#contact"><?= get_option('hp_button') ?></a>
                                     </div>
                                 </div>
                             </div>

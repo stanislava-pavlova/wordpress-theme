@@ -57,4 +57,20 @@ function reigisterAdminMenu()
     );
 }
 
+function showThemeSettings()
+{
+    include 'views' . DIRECTORY_SEPARATOR . 'theme-settings.php';
+}
 
+add_action('admin_menu', 'reigisterAdminMenu');
+
+
+function registerThemeOptions()
+{
+    register_setting('hpg', 'hp_company');
+    register_setting('hpg', 'hp_heading');
+    register_setting('hpg', 'hp_sub_heading');
+    register_setting('hpg', 'hp_button');
+}
+
+add_action('admin_init', 'registerThemeOptions');
