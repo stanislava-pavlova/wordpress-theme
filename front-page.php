@@ -25,7 +25,7 @@ get_header();
                     </div>
                     <div class="col-lg-6">
                         <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                            <img src="assets/images/slider-dec.png" alt="">
+                            <img src="<?= get_option('hp_banner') ?>" alt="banner">
                         </div>
                     </div>
                 </div>
@@ -39,27 +39,22 @@ get_header();
         <div class="row">
             <div class="col-lg-4 offset-lg-4">
                 <div class="section-heading  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
-                    <h6>Get Your Free Quote</h6>
-                    <h4>Grow With Us Now</h4>
+                    <h6><?= get_option('hp_subscr_sub_heading') ?></h6>
+                    <h4><?= get_option('hp_subscr_heading') ?></h4>
                     <div class="line-dec"></div>
                 </div>
             </div>
             <div class="col-lg-8 offset-lg-2  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
                 <form id="search" action="#" method="GET">
                     <div class="row">
-                        <div class="col-lg-4 col-sm-4">
+                        <div class="col-lg-8 col-sm-8">
                             <fieldset>
-                                <input type="web" name="web" class="website" placeholder="Your website URL..." autocomplete="on" required>
+                                <input type="address" name="address" class="email" placeholder="Email Address..." required>
                             </fieldset>
                         </div>
                         <div class="col-lg-4 col-sm-4">
                             <fieldset>
-                                <input type="address" name="address" class="email" placeholder="Email Address..." autocomplete="on" required>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-4 col-sm-4">
-                            <fieldset>
-                                <button type="submit" class="main-button">Get Quote Now</button>
+                                <button type="submit" class="main-button">Subscribe</button>
                             </fieldset>
                         </div>
                     </div>
@@ -76,7 +71,7 @@ get_header();
             <div class="col-lg-5">
                 <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
                     <h6>Our Portofolio</h6>
-                    <h4>See Our Recent <em>Projects</em></h4>
+                    <h4>See Our <em>Products</em></h4>
                     <div class="line-dec"></div>
                 </div>
             </div>
@@ -174,63 +169,46 @@ get_header();
                     <div class="line-dec"></div>
                 </div>
             </div>
-            <div class="col-lg-6 show-up wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                <div class="blog-post">
-                    <div class="row">
-                        <?php
-                        for ($i = 0; $i < count($events); $i++) :
-                            $txt = strip_tags($events[$i]->post_content);
-                            $txt = mb_substr($txt, 0, 120);
-                            $txt = trim($txt);
-                        ?>
-                            <div class="col-md-12">
-                                <div class="thumb">
-                                    <a href="<?= $events[$i]->guid ?>">
-                                        <!-- <img class="img-fluid mb-2" src="<?= $postImg ?>" /> -->
-                                        <img class="img-fluid mb-2" src="<?= getPostImageUrlOrDefault($events[$i]) ?>" />
-                                    </a>
-                                </div>
-                                <div class="down-content">
-                                    <span class="category">SEO Analysis</span>
-                                    <span class="date"><?= get_the_date() ?></span>
-                                    <a href="<?= $events[$i]->guid ?>">
-                                        <h4><?= $events[$i]->post_title ?></h4>
-                                    </a>
-                                    <p><?= $txt ?>...</p>
-                                    <span class="author">By: <?= $events[$i]->post_author ?></span>
-                                    <div class="border-first-button"><a href="<?= get_the_post_thumbnail_url($events[$i]) ?>">Discover More</a></div>
-                                </div>
-                            </div>
-                        <?php
-                        endfor;
-                        ?>
-                    </div>
-                </div>
-            </div>
+        </div>
 
-            <!-- <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                <div class="blog-posts">
-                    <div class="row">
+        <div class="row mb-2">
+            <?php
+            for ($i = 0; $i < count($events); $i++) :
+                $txt = strip_tags($events[$i]->post_content);
+                $txt = mb_substr($txt, 0, 120);
+                $txt = trim($txt);
+            ?>
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <?php
+                            $categories = get_the_category($events[$i]->ID);
+                            if ($categories) {
+                                echo '<span class="category" style="font-size: 13px">';
+                                foreach ($categories as $category) {
+                                    echo esc_html($category->name) . ' ';
+                                }
+                                echo '</span>';
+                            }
+                            ?>
 
-                        <div class="col-lg-12">
-                            <div class="post-item">
-                                <div class="thumb">
-                                    <a href="<?= $events[$i]->guid ?>">
-                                        <img class="img-fluid mb-2" src="<?= get_the_post_thumbnail_url($events[$i]) ?>" />
-                                    </a>
-                                </div>
-                                <div class=" right-content">
-                                    <span class="category">SEO Analysis</span>
-                                    <span class="date">24 September 2021</span>
-
-                                    <p>Lorem ipsum dolor sit amet, cocteturi adipiscing eliterski.</p>
-                                </div>
-                            </div>
+                            <a href="<?= $events[$i]->guid ?>" class="mb-0">
+                                <h4 style="color: black;"><?= $events[$i]->post_title ?></h4>
+                            </a>
+                            <div class="mb-1 text-body-secondary date"><?= get_the_date() ?></div>
+                            <p class="card-text mb-auto">
+                                <?= $txt ?>...
+                            </p>
+                            <a href="<?= post_permalink($events[$i]) ?>" style="color: #414141 !important;">Continue reading</a>
                         </div>
-
+                        <div class="col-auto d-none d-lg-block">
+                            <img class="bd-placeholder-img" style="width:210px; height:255px" src="<?= getPostImageUrlOrDefault($events[$i]) ?>" />
+                        </div>
                     </div>
                 </div>
-            </div> -->
+            <?php
+            endfor;
+            ?>
         </div>
     </div>
 </div>

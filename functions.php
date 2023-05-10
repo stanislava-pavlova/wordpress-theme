@@ -71,9 +71,12 @@ function registerThemeOptions()
     register_setting('hpg', 'hp_heading');
     register_setting('hpg', 'hp_sub_heading');
     register_setting('hpg', 'hp_button');
+    register_setting('hpg', 'hp_banner');
     register_setting('hpg', 'logo');
     register_setting('hpg', 'main_color');
     register_setting('hpg', 'header_text_color');
+    register_setting('hpg', 'hp_subscr_sub_heading');
+    register_setting('hpg', 'hp_subscr_heading');
 }
 
 add_action('admin_init', 'registerThemeOptions');
