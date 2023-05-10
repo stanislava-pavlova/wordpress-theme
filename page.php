@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<div class="container" style="margin-top: 125px;">
+<div class="container" style="padding-top: 120px;">
     <div class="row">
         <div class="col-md-8">
             <?= get_the_post_thumbnail() ?>

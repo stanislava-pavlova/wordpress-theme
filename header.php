@@ -27,7 +27,7 @@
   ?>
 
   <style>
-    header {
+    header, .header-sticky {
       background-color: <?= get_option('main_color') ?> !important;
     }
 

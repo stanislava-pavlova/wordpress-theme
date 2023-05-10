@@ -13,7 +13,7 @@ function getPostCategoriesAsString($categories)
 }
 ?>
 
-<div class="container">
+<div class="container" style="padding-top: 120px">
     <div class="row" style="padding: 15px;">
         <?php
         while (have_posts()) :
@@ -25,7 +25,7 @@ function getPostCategoriesAsString($categories)
                     <div class="col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-primary category"><?= getPostCategoriesAsString(get_the_category()) ?></strong>
                         <h3 class="mb-0">
-                            <a href="<?= post_permalink() ?>">
+                            <a href="<?= post_permalink() ?>" style="color: black !important;">
                                 <?= get_the_title() ?>
                             </a>
                         </h3>
