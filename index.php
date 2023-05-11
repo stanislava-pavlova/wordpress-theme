@@ -56,6 +56,9 @@ function getPostCategoriesAsString($categories)
         endwhile;
         ?>
     </div>
+    <div class="row">
+        <?php custom_pagination(); ?>
+    </div>
 </div>
 
 <?php

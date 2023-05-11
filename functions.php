@@ -80,3 +80,33 @@ function registerThemeOptions()
 }
 
 add_action('admin_init', 'registerThemeOptions');
+
+function custom_pagination()
+{
+    global $wp_query;
+
+    $big = 999999999;
+
+    $paginate = paginate_links(array(
+        'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+        'format' => '?paged=%#%',
+        'current' => max(1, get_query_var('paged')),
+        'total' => $wp_query->max_num_pages,
+        'prev_text' => __('&laquo; Previous'),
+        'next_text' => __('Next &raquo;'),
+        'type' => 'array'
+    ));
+
+    if ($wp_query->max_num_pages > 1) :
+?>
+        <nav class="pagination" style="display: flex; justify-content: space-evenly; align-items: center;">
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex;">
+                <?php foreach ($paginate as $page) {
+                    echo '<li style="margin: 0 5px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;">' . $page . '</li>';
+                } ?>
+            </ul>
+        </nav>
+
+<?php
+    endif;
+}

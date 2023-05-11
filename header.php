@@ -31,7 +31,7 @@
       background-color: <?= get_option('main_color') ?> !important;
     }
 
-    a {
+    header a {
       color: <?= get_option('header_text_color') ?> !important;
     }
   </style>
