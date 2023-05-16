@@ -3,7 +3,7 @@ get_header();
 the_post();
 ?>
 
-<div class="container" style="margin-top: 125px;">
+<div class="container" style="padding-top: 125px;">
     <div class="row">
         <div class="col-md-12">
             <?= get_the_post_thumbnail() ?>
