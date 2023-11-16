@@ -11,7 +11,8 @@
         ];
         wp_nav_menu($settings);
         ?>
-        <p>Copyright © 2022 DigiMedia Co., Ltd. All Rights Reserved.
+        <p>
+          <?php echo 'Copyright © ' . date('Y') . ' DigiMedia Co., Ltd. All Rights Reserved.'; ?>
           <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
         </p>
       </div>

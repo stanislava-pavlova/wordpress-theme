@@ -45,20 +45,13 @@ get_header();
                 </div>
             </div>
             <div class="col-lg-8 offset-lg-2  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-                <form id="search" action="#" method="GET">
-                    <div class="row">
-                        <div class="col-lg-8 col-sm-8">
-                            <fieldset>
-                                <input type="address" name="address" class="email" placeholder="Email Address..." required>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-4 col-sm-4">
-                            <fieldset>
-                                <button type="submit" class="main-button">Subscribe</button>
-                            </fieldset>
-                        </div>
-                    </div>
-                </form>
+                <div id="primary" class="content-area">
+                    <main id="main" class="site-main" role="main">
+                        <?php
+                        echo do_shortcode('[custom_contact_form]');
+                        ?>
+                    </main>
+                </div>
             </div>
         </div>
     </div>

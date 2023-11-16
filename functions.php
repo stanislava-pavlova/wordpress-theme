@@ -110,3 +110,20 @@ function custom_pagination()
 <?php
     endif;
 }
+
+function enqueue_contact_form_styles()
+{
+        wp_enqueue_style('contact-form-7');
+}
+add_action('wp_enqueue_scripts', 'enqueue_contact_form_styles');
+
+function custom_contact_form_shortcode()
+{
+        ob_start();
+        echo do_shortcode('[contact-form-7 id="6c90cef" title="Contact form 1"]');
+        return ob_get_clean();
+}
+add_shortcode('custom_contact_form', 'custom_contact_form_shortcode');
+
+
+add_action('admin_init', 'registerThemeOptions');
